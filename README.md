@@ -87,8 +87,7 @@ Key metrics used in the analysis:
 - **Sessions** = total sessions
     ```DAX
     Total Sessions = DISTINCTCOUNT(sessions[session_id])
-    Average sessions per week = AVERAGEX(VALUES('calendar'[year_week]),CALCULATE(DISTINCTCOUNT(sessions[session_id]))
-)
+    Average sessions per week = AVERAGEX(VALUES('calendar'[year_week]),CALCULATE(DISTINCTCOUNT(sessions[session_id])))
     ```
 - **Sets** = total sets
     ```DAX
