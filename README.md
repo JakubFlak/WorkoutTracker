@@ -1,6 +1,4 @@
-> Personal analytics project focused on strength training performance, built using Power BI and Google Sheets.
-
-# 🏋️ Strength Training Analytics Dashboard
+# Strength Training Analytics Dashboard
 
 ## 📌 Project Overview
 
@@ -11,8 +9,8 @@ The goal was not only to track workouts, but to **build a structured analytics s
 
 ## 🎯 Analytical Goal
 
-**Main Question:**
-> Is my workout actually effective in improving strength, consistency, and overall performance?
+**Main Question:**  
+Is my workout actually effective in improving strength, consistency, and overall performance?
 
 
 ## ❓ Key Questions
@@ -47,8 +45,9 @@ The goal was not only to track workouts, but to **build a structured analytics s
 
 ## 🗄️ Data Source & Architecture
 
-- **Data source:** Google Sheets (manual tracking of workouts)
-- **Granularity:**
+**Data source:** Google Sheets (manual tracking of workouts)    
+
+**Granularity:**
   - session-level (workout metadata, recovery)
   - set-level (exercise performance)
 
@@ -132,8 +131,6 @@ These metrics allow combining:
 - RIR indicates high training intensity (close to failure)
 - Bench press progression is slowing → possible plateau  
 
----
-
 ### 🟦 Exercise-Level Insights
 - Strong progression in:
   - incline hammer strength press  
@@ -142,8 +139,6 @@ These metrics allow combining:
   - overhead press  
   - lateral raises  
 - Back exercises show variability but positive trend  
-
----
 
 ### 🟨 Training Structure
 - Average session:
@@ -154,22 +149,16 @@ These metrics allow combining:
 - Most frequent training days: **Tuesday and Thursday**  
 - Rep distribution concentrated around **10–12 reps**
 
----
-
 ### 🟥 Recovery & Body
 - 4-day training gaps consistently lead to DOMS → should be avoided  
 - Average sleep: ~7 hours  
 - More sleep correlates with better recovery score  
 - Bodyweight is increasing, but slower than expected for bulking  
 
----
-
 ### 🟪 Training Balance
 - Proper distribution between push and pull movements  
 - Highest volume allocated to major muscle groups (chest, back)  
 - Smaller groups (arms, shoulders) proportionally lower → expected structure  
-
----
 
 ## 📊 Dashboard & Deliverables
 
@@ -202,8 +191,6 @@ The dashboard allows dynamic filtering by:
 - **Power BI** → data modeling & visualization  
 - **Power Query** → data transformation  
 - **DAX** → metric calculations  
-
----
 
 ## 🧠 What I Learned
 
