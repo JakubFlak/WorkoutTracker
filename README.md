@@ -182,7 +182,7 @@ The dashboard allows dynamic filtering by:
 ![Body](images/dashboard_4.png)
 
 ## 🎥 Dashboard Operation
-<video src="images/dashboard.mp4" width="640" height="480" controls></video>
+[![Watch the demo](https://img.youtube.com/vi/qMJdvhZU6sk/0.jpg)](https://youtu.be/qMJdvhZU6sk)
 
 
 ## 🛠️ Tech Stack
