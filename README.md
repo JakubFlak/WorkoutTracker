@@ -47,6 +47,14 @@ Is my workout actually effective in improving strength, consistency, and overall
 
 **Data source:** Google Sheets (manual tracking of workouts)    
 
+>[Workout tracking spreadsheet](https://docs.google.com/spreadsheets/d/1gFHXDi1HX17qRVYbfauXLBlp9pamqYz01sC4nXSJ3qA/edit?usp=sharing)  
+
+![Body](images/data_sets_log.png)
+![Body](images/data_sessions.png)
+![Body](images/data_exercise_dict.png)
+
+
+
 **Granularity:**
   - session-level (workout metadata, recovery)
   - set-level (exercise performance)
@@ -65,7 +73,7 @@ The model follows a **hybrid star schema design**:
 
 ### Dimension Tables
 - **exercise_dict** → exercise metadata (muscle group, movement type)
-- **calendar** → date dimension for time analysis
+- **calendar** → date dimension for time analysis (created via DAX)
 
 ### Relationships
 exercise_dict → sets_log  ⟷ sessions ← calendar
@@ -116,6 +124,20 @@ Key metrics used in the analysis:
     ```DAX
     Total duration (hours) = SUM(sessions[duration_min])/60
     Average session duration = AVERAGE(sessions[duration_min])
+    ```
+- **Calendar table**
+    ```DAX
+    calendar = 
+    ADDCOLUMNS(
+        CALENDARAUTO(),
+        "year", YEAR([Date]),
+        "month_number", MONTH([Date]),
+        "month_name", FORMAT([Date], "MMM"),
+        "week_number", WEEKNUM([Date], 2),
+        "year_week", FORMAT([Date], "yyyy-ww"),
+        "weekday_name", FORMAT([Date],"dddd"),
+        "weekday_number", WEEKDAY([Date],2
+        ))
     ```
 
 These metrics allow combining:
