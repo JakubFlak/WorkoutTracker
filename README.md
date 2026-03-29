@@ -211,8 +211,6 @@ The dashboard allows dynamic filtering by:
 
 **What’s shown:**
 - Navigation between report pages
-- Training gap vs DOMS analysis
-- Body metrics tracking (weight, sleep, recovery)
 - Interactive filtering with slicers
 
 [![Watch the demo](https://img.youtube.com/vi/qMJdvhZU6sk/0.jpg)](https://youtu.be/qMJdvhZU6sk)
