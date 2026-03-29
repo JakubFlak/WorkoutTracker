@@ -88,28 +88,36 @@ Key metrics used in the analysis:
 
 - **Volume** = total reps x weight  
     ```DAX 
-    Total Volume = SUMX(sets_log, sets_log[reps]*sets_log[weight_kg])
+    Total Volume = SUMX(sets_log, sets_log[reps]*sets_log[weight_kg])  
+
     Average volume per session = DIVIDE([Total Volume],[Total Sessions])
     ```
-- **Sessions** = total sessions
+- **Sessions** = training-based metrics
     ```DAX
     Total Sessions = DISTINCTCOUNT(sessions[session_id])
+
     Average sessions per week = AVERAGEX(VALUES('calendar'[year_week]),CALCULATE(DISTINCTCOUNT(sessions[session_id])))
+
+    Total duration (hours) = SUM(sessions[duration_min])/60
+    
+    Average session duration = AVERAGE(sessions[duration_min])
     ```
-- **Sets** = total sets
+- **Sets** = sets-based metrics
     ```DAX
     Total Sets = COUNTROWS(sets_log)
+
     Average sets per session = DIVIDE([Total Sets],[Total Sessions])
     ```
-- **Reps** = total reps, count reps
+- **Reps** = reps-based metrics
     ```DAX
     Total Reps = SUM(sets_log[reps])
+
     Reps count = COUNT(sets_log[reps])
+
     Average reps per set = DIVIDE([Total Reps],[Total Sets])
     ```
-- **One rep max** = calculated column for one rep max, one rep max score
+- **One rep max** = one rep max score
     ```DAX
-    one_rm = sets_log[weight_kg]*(1+(sets_log[reps]+sets_log[rir])/30)
     One rep max = MAX(sets_log[one_rm])
     ```
 - **RIR** = reps in reserve, intensity indicator
@@ -120,12 +128,8 @@ Key metrics used in the analysis:
     ```DAX
     Average Training Gap = AVERAGE(sessions[days_since_last_session])
     ```
-- **Session duration**
-    ```DAX
-    Total duration (hours) = SUM(sessions[duration_min])/60
-    Average session duration = AVERAGE(sessions[duration_min])
-    ```
-- **Calendar table**
+Tables or calculated columns created via DAX:
+- **Calendar** = table for time-based analysis
     ```DAX
     calendar = 
     ADDCOLUMNS(
@@ -139,11 +143,11 @@ Key metrics used in the analysis:
         "weekday_number", WEEKDAY([Date],2
         ))
     ```
+- **One rep max** = calculated column
+    ```DAX
+    one_rm = sets_log[weight_kg]*(1+(sets_log[reps]+sets_log[rir])/30)
+    ```
 
-These metrics allow combining:
-- performance (strength, volume)
-- behavior (consistency)
-- recovery (sleep, DOMS)
 
 
 ## 📊 Analysis & Insights
